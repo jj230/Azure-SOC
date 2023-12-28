@@ -44,6 +44,9 @@ For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL t
 The following table shows the metrics we measured in our insecure environment for 24 hours:
 
 Day 1: Friday -> Saturday
+
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
 | Start Time               | 12/8/2023, 4:23:11 PM
 | Stop Time                | 12/9/2023, 4:23:11 PM
 
@@ -56,6 +59,9 @@ Day 1: Friday -> Saturday
 | AzureNetworkAnalytics_CL | 3270
 
 Day 2: Saturday -> Sunday
+
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
 | Start Time               | 12/9/2023, 4:23:11 PM
 | Stop Time                | 12/10/2023, 4:23:11 PM
 
@@ -68,6 +74,9 @@ Day 2: Saturday -> Sunday
 | AzureNetworkAnalytics_CL | 5050
 
 Day 3: Sunday -> Monday
+
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
 | Start Time               | 12/10/2023, 4:23:11 PM
 | Stop Time                | 12/11/2023, 4:23:11 PM
 
