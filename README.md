@@ -43,7 +43,7 @@ For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL t
 
 The following table shows the metrics we measured in our insecure environment for 24 hours:
 
-Day 1: Friday -> Saturday
+Day 1: Friday -> Saturday                 
 
 | Metric                   | Time (EST)
 | ------------------------ | ---------------------
@@ -59,7 +59,6 @@ Day 1: Friday -> Saturday
 | AzureNetworkAnalytics_CL | 3270
 
 Day 2: Saturday -> Sunday
-
 | Metric                   | Time (EST)
 | ------------------------ | ---------------------
 | Start Time               | 12/9/2023, 4:23:11 PM
@@ -95,16 +94,55 @@ Day 3: Sunday -> Monday
 ## Metrics After Hardening / Security Controls
 
 The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+
+Day 1: Friday -> Saturday                 
+
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
+| Start Time               | 12/15/2023, 4:49:51 PM
+| Stop Time                | 12/16/2023, 4:49:51 PM
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 11295
+| Syslog                   | 0
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
+| Malicious Flows Denied   | 3259
+
+Day 2: Saturday -> Sunday
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
+| Start Time               | 12/16/2023, 4:49:51 PM
+| Stop Time                | 12/17/2023, 4:49:51 PM
+
+| Metric                   | Count
+| ------------------------ | -----
+| SecurityEvent            | 8337
+| Syslog                   | 0
+| SecurityAlert            | 0
+| SecurityIncident         | 0
+| AzureNetworkAnalytics_CL | 0
+| Malicious Flows Denied   | 2708
+
+Day 3: Sunday -> Monday
+
+| Metric                   | Time (EST)
+| ------------------------ | ---------------------
+| Start Time               | 12/17/2023, 4:49:51 PM
+| Stop Time                | 12/18/2023, 4:49:51 PM
+
+| Metric                   | Count
+| ------------------------ | -----
+| SecurityEvent            | 8172
+| Syslog                   | 0
+| SecurityAlert            | 0
+| SecurityIncident         | 0
+| AzureNetworkAnalytics_CL | 0
+| Malicious Flows Denied   | 2399
+
+
 
 ## Conclusion
 
