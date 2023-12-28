@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this project, I created a small honeynet in Azure. I then setup a Log Aanalytics workspace to ingest the resources' logs and connected that to Microsoft Sentinel. Within Sentinel, I built attack maps and trigger alerts. I initially set up the network so that all traffic was allowed through. After a 72 hour period (Friday afternoon - Monday afternoon), I analyzed the incidents and events in Sentinel, responded to them, and gathered the attack metrics. Next, I setup Azure to monitor the safety score of the network in comparison to NIST 800-53, then followed some of its recommendations for how to harden the environment. After hardening, I waited until the following weekend to take the after-hardening attack metrics. 
+In this project, I created a small honeynet in Azure. I then setup a Log Aanalytics workspace to ingest the resources' logs and connected that to Microsoft Sentinel. Within Sentinel, I built attack maps and trigger alerts. I initially set up the network so that all traffic was allowed through. After a 72 hour period (Friday afternoon - Monday afternoon), I analyzed the incidents and events in Sentinel, responded to them, and gathered the attack metrics. Next, I setup Azure to monitor the safety score of the network in comparison to NIST 800-53, then followed some of its recommendations for how to harden the environment. After hardening, I waited until the following weekend to take the after-hardening attack metrics, because I wanted to compare the metrics during similar traffic times.
 
 The metrics I analyzed were:
 - SecurityEvent (Windows Event Logs)
@@ -14,10 +14,11 @@ The metrics I analyzed were:
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Screenshot 2023-12-28 at 10 04 59 AM](https://github.com/jj230/Azure-SOC/assets/93885534/d4b719b9-7b92-4edf-bf27-0cfdcc15ade2)
+
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![Screenshot 2023-12-28 at 10 07 57 AM](https://github.com/jj230/Azure-SOC/assets/93885534/90cffa21-e1d6-4596-8644-c59b7a77b18d)
 
 The architecture of the mini honeynet in Azure consists of the following components:
 
@@ -29,9 +30,11 @@ The architecture of the mini honeynet in Azure consists of the following compone
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+## BEFORE AND AFTER METRICS
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+For the "BEFORE" metrics, all NSGs and built-in firewalls were setup to be completely open to the interent. All other resources had visible public endpoints.
+
+For the "AFTER" metrics, NSGs were hardened by blocking ALL traffic with the exception of my admin workstation. All other resources were protected by their built-in firewalls as well as Private Endpoints.
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG-Malicious-Allowed-In (alltime)](https://github.com/jj230/Azure-SOC/assets/93885534/5b8bb2fb-ffc5-4aa0-a8c0-5aa3d60aa6ad)
@@ -89,7 +92,7 @@ Day 3: Sunday -> Monday
 
 ## Attack Maps Before Hardening / Security Controls
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+```All map queries returned no results due to no documented instances of malicious activity for the 72 hour period after hardening.```
 
 ## Metrics After Hardening / Security Controls
 
@@ -153,8 +156,8 @@ Day 3: Sunday -> Monday
 | AzureNetworkAnalytics_CL   |	-100.00%
 
 
-## Conclusion
+## Reflections
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+I learned through this project how to set up a network on Azure, including VMs, NSGs, Log Analytics, Microsoft Sentinel, and Entra ID. I learned how to create different workbooks and attack maps based on incoming incidents. I learned to use KQL and sort through thousands of logs. I practiced responding to incidents and remediating them. I also learned to work with and apply security recommendations, specifically with NIST 800-53. 
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+This project shows how important even the smallest steps are to hardening an environment. Only minimal hardening steps were taken, but the results were dramatic. For a network with higher needs, valuable resources, and sensitive information, I would certainly want to secure the environment further. The Azure environment was fully setup for me to easily take those next steps to secure the environment even more if need be. I also could have added different recommendations to the environment to check against those. 
