@@ -2,6 +2,8 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
 ![Screenshot 2023-12-27 at 4 31 07 PM](https://github.com/jj230/Azure-SOC/assets/93885534/0febcf7e-3dde-4d35-b92a-ff97105d5390)
 
+![Screenshot 2023-12-27 at 4 27 24 PM](https://github.com/jj230/Azure-SOC/assets/93885534/13c3f627-c770-4b64-9099-0d1d1c45f773)
+
 
 
 ## Introduction
