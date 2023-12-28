@@ -142,6 +142,15 @@ Day 3: Sunday -> Monday
 | AzureNetworkAnalytics_CL | 0
 | Malicious Flows Denied   | 2399
 
+## Results
+
+| Metric                     | Change after hardening
+| ------------------------   | ----------------------
+| Security Events 	          | -66.41%
+| Syslog                     |	-100.00%
+| SecurityAlert              | -100.00%
+| Security Incident          | -100.00%
+| AzureNetworkAnalytics_CL   |	-100.00%
 
 
 ## Conclusion
