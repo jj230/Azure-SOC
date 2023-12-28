@@ -4,8 +4,9 @@
 
 ## Introduction
 
-In this project, I created a minihoneynet in Azure, including VMs, NSGs, Resource Groups, a SQL Database, and more. Once all of the resources were created, I setup a Log Aanalytics workspace to ingest the resources' logs, then, connected that to Microsoft Sentinel. I then worked within Sentinel to build attack maps, trigger alerts and create incidents. After all of the resources were setup and the logs were connected to Sentinel, I compared attack metrics from before I harded the environment and after I hardened it following parts of NIST 800-53. The metrics I analyzed were:
+In this project, I created a small honeynet in Azure. I then setup a Log Aanalytics workspace to ingest the resources' logs and connected that to Microsoft Sentinel. Within Sentinel, I built attack maps and trigger alerts. I initially set up the network so that all traffic was allowed through. After a 72 hour period (Friday afternoon - Monday afternoon), I analyzed the incidents and events in Sentinel, responded to them, and gathered the attack metrics. Next, I setup Azure to monitor the safety score of the network in comparison to NIST 800-53, then followed some of its recommendations for how to harden the environment. After hardening, I waited until the following weekend to take the after-hardening attack metrics. 
 
+The metrics I analyzed were:
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
 - SecurityAlert (Log Analytics Alerts Triggered)
@@ -33,9 +34,10 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+![NSG Allowed Inbound Malicious Flows]![NSG-Malicious-Allowed-In (alltime)](https://github.com/jj230/Azure-SOC/assets/93885534/5b8bb2fb-ffc5-4aa0-a8c0-5aa3d60aa6ad)
+ <br>
+![Linux Syslog Auth Failures] ![Linux_SSH_Auth_Fail (all time?)](https://github.com/jj230/Azure-SOC/assets/93885534/248fdc7a-5286-4c7c-aead-434d843dd970)<br>
+![Windows RDP/SMB Auth Failures] ![Windows-RDP-Auth-Fail (alltime?)](https://github.com/jj230/Azure-SOC/assets/93885534/9852eeac-bc84-490f-8e17-331bfccee7d8)<br>
 
 ## Metrics Before Hardening / Security Controls
 
