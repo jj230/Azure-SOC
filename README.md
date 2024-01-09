@@ -164,3 +164,4 @@ This project shows how important even the smallest steps are to hardening an env
 
 ## Opportunities for Further Learning
 I would like to better understand why there are still security events after hardening: what are they, how could I stop them, and why didn't they show up on the maps. Now that I have a good visualization for this project, I would be curious to re-create this lab a 2nd time to more deeply understand it and to experiment with applying more of the NIST 800-53 recommendations.
+
